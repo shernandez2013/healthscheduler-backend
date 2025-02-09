@@ -10,4 +10,3 @@ public record AppointmentDTO(
         String status,
         String notes
 ) {}
-
