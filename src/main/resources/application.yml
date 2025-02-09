@@ -1,0 +1,34 @@
+server:
+  port: 8080  # Port where the application will run
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hospital_db  # PostgreSQL database URL
+    username: postgres  # PostgreSQL username
+    password: mich2021$  # PostgreSQL password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update  # Use "update" for development, "validate" for production
+    show-sql: true  # Enable SQL logging to the console
+
+  messages:
+    basename: messages  # Load messages_en.properties and messages_es.properties
+    encoding: UTF-8
+
+# http://localhost:8080/swagger-ui.html
+springdoc:
+  api-docs:
+    enabled: true  # Enable OpenAPI (Swagger) documentation
+    path: /v3/api-docs  # Default path for the OpenAPI JSON (if not set, it is /v3/api-docs)
+  swagger-ui:
+    path: /swagger-ui.html  # URL to access Swagger UI
+    operationsSorter: method  # Sort operations by HTTP method
+    tagsSorter: alpha  # Sort tags in alphabetical order
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG  # Log detailed HTTP request info
+    org.hibernate.SQL: DEBUG  # Log executed SQL queries
